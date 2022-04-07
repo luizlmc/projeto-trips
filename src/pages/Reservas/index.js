@@ -2,9 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdAddCircle, MdDelete, MdRemoveCircle } from 'react-icons/md';
 
-import { removeReserve, updateAmountReserve } from '../../store/modules/reserve/actions';
+import { removeReserve, updateAmountRequest } from '../../store/modules/reserve/actions';
 
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 function Reservas() {
 
@@ -16,11 +17,11 @@ function Reservas() {
     }
 
     function decrementAmount(trip) {
-        dispatch(updateAmountReserve(trip.id, trip.amount - 1));
+        dispatch(updateAmountRequest(trip.id, trip.amount - 1));
     }
 
     function incrementAmount(trip) {
-        dispatch(updateAmountReserve(trip.id, trip.amount + 1));
+        dispatch(updateAmountRequest(trip.id, trip.amount + 1));
     }
 
     return (
@@ -53,7 +54,9 @@ function Reservas() {
             ))}
 
             <footer>
-                <button type="button">Solicitar Reservas</button>
+                <Link to='/' >
+                    <button type="button" >Solicitar Reservas</button>
+                </Link>
             </footer>
 
         </div>
